@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/img/rogey.ico">
+    <title>Snake-JS</title>
+
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: black;
+        }
+
+        #game-box {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            width: 75vmin;
+            /* height: 100vmin; */
+        }
+
+        .title {
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .label {
+            color: white;
+            font-family: Verdana;
+            font-size: 1em;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        #score-board {
+            background-color: rgb(110, 110, 110);
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            max-width: 75vmin;
+            grid-template-rows: repeat(2, 0.2fr);
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        #game-board {
+            background-color: #CCC;
+            display: grid;
+            width: 75vmin;
+            height: 75vmin;
+            grid-template-rows: repeat(21, 1fr);
+            grid-template-columns: repeat(21, 1fr);
+        }
+
+        .snake {
+            background-color: hsl(200, 100%, 50%);
+            border: .25vmin solid black;
+        }
+
+        .head {
+            background-color: hsl(200, 100%, 75%);
+            border: .25vmin solid black;
+        }
+
+        .swallow {
+            background-color: hsl(200, 35%, 35%);
+            border: .25vmin solid black;
+        }
+
+        .food {
+            background-color: hsl(50, 100%, 50%);
+            border: .25vmin solid black;
+        }
+
+        .enemy {
+            background-color: hsl(20, 100%, 50%);
+            border: .25vmin solid black;
+        }
+
+        .poison {
+            background-color: hsl(280, 100%, 50%);
+            border: .25vmin solid black;
+        }
+
+        .devourer-trails {
+            background-color: black;
+        }
+    </style>
+
+    <!-- O module nos indica que não será um único arquivo javascript, mas sim que haverão imports e exports -->
+    <script src="src/game.js" defer type="module"></script>
+</head>
+
+<body>
+    <div id="game-box">
+        <header>
+            <h1 class="title">Snake-JS</h1>
+        </header>
+
+        <!-- Poderíamos usar o canvas aqui para renderizar o jogo, e isso seria o mais convencional, mas como o Snake opera completamente por grid, podemos só usar um CSS grid mesmo -->
+
+        <div id="score-board">
+            <p class="label" id="snake-size">Size: x </p>
+            <p class="label" id="snake-speed">Speed: x </p>
+            <p class="label" id="snake-growth">Growth: x </p>
+            <p class="label" id="snake-score">Score: x </p>
+            <p class="label" id="snake-level">Level: x</p>
+            <p class="label" id="snake-high-score">High Score: x </p>
+        </div>
+
+        <div id="game-board"></div>
+    </div>
+</body>
+
+</html>
